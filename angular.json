@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "speaking-clubs"
+  "defaultProject": "speaking-clubs",
+  "cli": {
+    "analytics": "c644dc6f-b97d-45f0-98de-8f0d99e1cc16"
+  }
 }
