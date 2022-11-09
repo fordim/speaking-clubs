@@ -1,0 +1,28 @@
+<div class="root">
+  <div class="modal" @fadeInModal *ngIf="(newGameModal$ | async)" >
+    <think-it-up-new-game-modal></think-it-up-new-game-modal>
+  </div>
+  <div class="modal" @fadeInModal *ngIf="(addPlayerModal$ | async)">
+    <think-it-up-add-player-modal></think-it-up-add-player-modal>
+  </div>
+  <div class="modal" @fadeInModal *ngIf="(hasGeneralModal$ | async)">
+    <think-it-up-general-modal></think-it-up-general-modal>
+  </div>
+  <div class="modal" @fadeInModal *ngIf="(endGameModal$ | async)">
+    <think-it-up-end-game-modal></think-it-up-end-game-modal>
+  </div>
+  <div class="modal" @fadeInBigCard *ngIf="(bigCardModal$ | async)">
+    <think-it-up-big-card-modal></think-it-up-big-card-modal>
+  </div>
+  <body
+    [class.ban-body]="(newGameModal$ | async)
+    || (addPlayerModal$ | async)
+    || (hasGeneralModal$ | async)
+    || (endGameModal$ | async)
+    || (bigCardModal$ | async)
+    ">
+    <think-it-up-menu></think-it-up-menu>
+    <think-it-up-board></think-it-up-board>
+    <think-it-up-players></think-it-up-players>
+  </body>
+</div>

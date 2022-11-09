@@ -1,0 +1,106 @@
+.wrapper {
+  width: 1400px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board {
+  width: 800px;
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cards {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards-count {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.field {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.letters {
+  width: 200px;
+  height: 350px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 180px;
+  height: 250px;
+  border: 1px solid #0080C1;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 80px;
+  margin-bottom: 10px;
+
+  &:hover {
+    box-shadow: 0 0 10px #00C1FF,0 0 20px #00C1FF,0 0 30px #00C1FF,0 0 40px #00C1FF;
+  }
+}
+
+.card-category {
+  background-color: #00C1FF;
+}
+
+.card-letter {
+  background-color: #00C1FF;
+}
+
+.open-card {
+  width: 300px;
+  height: 180px;
+  background-color: white;
+  border: 1px solid #0080C1;
+  border-radius: 5px;
+  text-align: center;
+  color: #004980;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card-text {
+  width: 225px;
+}
+
+.open-card-letter {
+  font-size: 125px;
+  font-weight: bold;
+}
+
+.open-card-category {
+  font-size: 25px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 10px #00C1FF,0 0 20px #00C1FF,0 0 30px #00C1FF,0 0 40px #00C1FF;
+  }
+}
+
+.questionIcon {
+  width: 175px;
+  height: 175px;
+}
+
+.lettersIcon {
+  width: 125px;
+  height: 125px;
+}
