@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import { BoardService } from "../services/board.service";
 import { FADE_IN_BIG_CARD_ANIMATION, FADE_IN_MODAL_ANIMATION } from "./animations";
+import { UserService } from "../../shared/services/user.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'think-it-up-main-page',
@@ -8,12 +10,21 @@ import { FADE_IN_BIG_CARD_ANIMATION, FADE_IN_MODAL_ANIMATION } from "./animation
   styleUrls: ['./main-page.component.scss'],
   animations: [FADE_IN_BIG_CARD_ANIMATION, FADE_IN_MODAL_ANIMATION],
 })
-export class MainPageComponent {
+export class MainPageComponent implements OnInit{
   newGameModal$ = this._board.newGameModal$;
   addPlayerModal$ = this._board.addPlayerModal$;
   hasGeneralModal$ = this._board.hasGeneralModal$;
   endGameModal$ = this._board.endGameModal$;
   bigCardModal$ = this._board.bigCardModal$;
 
-  constructor(private _board: BoardService) { }
+  constructor(private _board: BoardService, private _user: UserService, private router: Router) { }
+
+  ngOnInit(): void {
+    if (!this._user.isActiveUserValid()) {
+      this.router.navigate(['']);
+    }
+    // if (!this._user.activeUser$.value) {
+    //   this.router.navigate(['']);
+    // }
+  }
 }

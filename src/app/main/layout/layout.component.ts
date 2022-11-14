@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { UserService } from "../../shared/services/user.service";
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent {
 
-  constructor() { }
+  activeUser$ = this._user.activeUser$;
+  activeUserName$ = this._user.activeUserName$;
 
-  ngOnInit(): void {
+  constructor(private _user: UserService, private _auth: AuthService) {
   }
 
+  public logout() {
+    this._auth.logout();
+  }
 }

@@ -1,4 +1,4 @@
-import {ModalType} from "./consts";
+import { ModalType } from "./consts";
 
 export interface Player {
   id: number,
