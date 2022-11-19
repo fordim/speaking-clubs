@@ -1,0 +1,16 @@
+<div class="wrapper" [class.ban-wrapper]="(modal$ | async)">
+  <div class="mainForm" [class.ban-mainForm]="(modal$ | async)">
+    <img class="alLayDown" src="{{ alLayDown }}" alt="">
+    <form class="form" #form="ngForm" (ngSubmit)="logIn(form)">
+      <div class="field">
+        <label>Login</label>
+        <input type="text" name="login" ngModel maxlength="35" minlength="3" required>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" name="password" ngModel maxlength="25" minlength="3" required>
+      </div>
+      <button class="button">Sign in</button>
+    </form>
+  </div>
+</div>

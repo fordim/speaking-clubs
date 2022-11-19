@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainModule } from "./main/main.module";
 import { ThinkItUpModule } from "./think-it-up/think-it-up.module";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ThinkItUpModule } from "./think-it-up/think-it-up.module";
     AppRoutingModule,
     MainModule,
     ThinkItUpModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,6 +11,7 @@ import { PlayersComponent } from "./main-page/players/players.component";
 import { MainPageComponent } from "./main-page/main-page.component";
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MainModule } from "../main/main.module";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
   imports: [
     CommonModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MainModule
   ]
 })
 export class ThinkItUpModule { }

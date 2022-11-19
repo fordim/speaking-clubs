@@ -7,8 +7,12 @@ import { HomeComponent } from "../home/home.component";
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
+  @Input() type: string | null = '';
   @Input() contentText: string | null = '';
   @Input() buttonText: string | null = '';
+
+  alThinking = '/assets/main/images/al-thinking.png';
+  alNice = '/assets/main/images/al-nice.png';
 
   constructor(private homeComponent: HomeComponent) { }
 

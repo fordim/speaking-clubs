@@ -1,72 +1,69 @@
 header {
   display: flex;
   width: 100%;
-  background: cornflowerblue;
+  min-width: 1400px;
+  background: #EFCEEB;
   border-radius: 5px;
-  border: 1px solid #3772e8;
   position: absolute;
   justify-content: space-between;
+  font-family: Arial, serif;
+  z-index: 4;
 }
 
-.wrapper {
+.right-block {
   display: flex;
+  justify-content: space-around;
+  margin-right: 20px;
 }
 
 .button {
   width: 100px;
-  background: aliceblue;
-  margin: 5px;
+  background: #FFFFFF;
+  margin: 10px;
   color: black;
   text-align: center;
   display: inline-block;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 20px;
+  border: none;
   line-height: 35px;
-  border: 1px solid #3772e8;
   cursor: pointer;
 }
 
-.active {
-  color: #c21449;
+.button:hover{
+  background: #87CEFAFF;
 }
 
 .user-block {
-  width: 350px;
-  border-right: 1px solid #3772e8;
-  display: flex;
+  width: 200px;
+  margin-left: 110px;
 }
 
-.user-block > p {
-  border-left: 1px solid #3772e8;
-  padding-left: 15px;
-  display: block;
-  width: 250px;
-  color: white;
-  font-size: 16px;
-  line-height: 50px;
-}
-
-.game-block {
-  display: flex;
-}
-
-.game-block > p {
-  padding-left: 15px;
-  display: block;
-  color: white;
-  font-size: 16px;
-  line-height: 50px;
-}
-
-.ban-block {
-  opacity: 0.4;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.logout-block {
+.userName {
   width: 100px;
-  border-left: 1px solid #3772e8;
-  display: flex;
-  justify-content: space-around;
+  background: #FFFFFF;
+  margin: 10px;
+  color: black;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 20px;
+  border: none;
+  line-height: 35px;
+}
+
+.alUser {
+  position: absolute;
+  width: 110px;
+  height: 100px;
+  top: 10px;
+  left: 15px;
+}
+
+.triangle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 20px;
+  left: 110px;
 }

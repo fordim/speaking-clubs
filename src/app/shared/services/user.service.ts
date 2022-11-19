@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from "../../main/constants/interface";
+import { User, UserFoLocalStorage } from "../../main/constants/interface";
 import { BehaviorSubject}  from "rxjs";
 
 @Injectable({
@@ -9,14 +9,18 @@ export class UserService {
 
   users: User[] = [
     {
-      name: 'Admin',
+      id: 1,
       login: 'admin',
+      name: 'Admin',
       password: 'admin',
+      role: 'admin',
     },
     {
-      name: 'Teacher',
+      id: 2,
       login: 'speaking-clubs-teacher@skyeng.ru',
+      name: 'Teacher',
       password: '54321',
+      role: 'teacher',
     },
   ];
 
@@ -59,7 +63,7 @@ export class UserService {
     }
   }
 
-  public setActiveUserToLocalStorage(user: User): void {
+  public setActiveUserToLocalStorage(user: UserFoLocalStorage): void {
     window.localStorage.setItem('activeUser', JSON.stringify(user));
   }
 

@@ -1,7 +1,14 @@
-.root {
+.wrapper {
   display: flex;
   justify-content: center;
   font-family: Arial, serif;
+  position: relative;
+  min-width: 1400px;
+  background-color: #FFFFFF;
+}
+
+.layout {
+  padding-bottom: 55px;
 }
 
 .modal {

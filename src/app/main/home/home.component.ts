@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from "rxjs";
 import { AuthService } from "../services/auth.service";
 import { UserService } from "../../shared/services/user.service";
-import { CONTINUE, ERROR_CODE, OK } from "../constants/consts";
-import { NgForm } from "@angular/forms";
+import { CONTINUE, OK } from "../constants/consts";
+import { UserApiService } from "../../shared/services/user-api.service";
 
 @Component({
   selector: 'app-home',
@@ -13,18 +13,18 @@ import { NgForm } from "@angular/forms";
 export class HomeComponent implements OnInit {
 
   public modal$ = new BehaviorSubject<boolean>(false);
+  public modalType$ = new BehaviorSubject<string>('');
   public contentTextEvent$ = new BehaviorSubject<string>('');
   public buttonTextEvent$ = new BehaviorSubject<string>('');
   public isLogInSuccess$ = this._user.activeUser$;
 
-  public name: string = '';
-  public login: string = '';
-  public password: string = '';
-
-  constructor(private _auth: AuthService, private _user: UserService) { }
+  constructor(private _auth: AuthService, private _user: UserService, private _userApi: UserApiService) { }
 
   ngOnInit(): void {
     this.isLogInSuccess$.next(this._user.getActiveUser());
+
+    //TODO test api
+    this._userApi.get();
   }
 
   public closeModal() {
@@ -36,29 +36,15 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public logIn(form: NgForm): void {
-    if (form.valid === false) {
-      return;
-    }
-
-    const logInRequest = this._auth.logIn(form.value.login, form.value.password);
-
-    if (logInRequest.code === ERROR_CODE) {
-      this.showModal(logInRequest.message, true);
-      return;
-    }
-
-    this.showModal(logInRequest.message);
-  }
-
-  public showModal( textEvent: string, error: boolean = false ): void {
+  public showModal( textEvent: string, type: string, error: boolean = false ): void {
     this.modal$.next(true);
     this.contentTextEvent$.next(textEvent);
-    this.buttonTextEvent$.next(CONTINUE);
+    this.modalType$.next(type);
 
     if (error) {
       this.buttonTextEvent$.next(OK);
     } else {
+      this.buttonTextEvent$.next(CONTINUE);
       this.isLogInSuccess$.next(true);
     }
   }

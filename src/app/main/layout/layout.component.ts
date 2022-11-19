@@ -12,6 +12,9 @@ export class LayoutComponent {
   activeUser$ = this._user.activeUser$;
   activeUserName$ = this._user.activeUserName$;
 
+  alUser = '/assets/main/images/al-user.png';
+  triangle = '/assets/main/images/triangle.png';
+
   constructor(private _user: UserService, private _auth: AuthService) {
   }
 

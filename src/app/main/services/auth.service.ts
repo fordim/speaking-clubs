@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Modal, User } from "../constants/interface";
+import {Modal, User, UserFoLocalStorage} from "../constants/interface";
 import {
-  ERROR_CODE,
-  MESSAGE_LOG_IN_SUCCESS,
-  MESSAGE_USER_NOT_FOUND,
-  MESSAGE_WRONG_PASSWORD,
+  ERROR,
+  ERROR_CODE, MESSAGE_GOOD_JOB,
+  MESSAGE_SOMETHING_IS_WRONG,
+  SUCCESS,
   SUCCESS_CODE
 } from "../constants/consts";
 import { UserService } from "../../shared/services/user.service";
@@ -22,15 +22,22 @@ export class AuthService {
     const user = this.users.filter(user => user.login === login).shift();
 
     if (!user) {
-      return { code: ERROR_CODE, message: MESSAGE_USER_NOT_FOUND };
+      return { type: ERROR, code: ERROR_CODE, message: MESSAGE_SOMETHING_IS_WRONG };
     }
 
     if (!AuthService.validatePassword(password, user)) {
-      return { code: ERROR_CODE, message: MESSAGE_WRONG_PASSWORD };
+      return { type: ERROR, code: ERROR_CODE, message: MESSAGE_SOMETHING_IS_WRONG };
     }
 
-    this._user.setActiveUserToLocalStorage(user);
-    return { code: SUCCESS_CODE, message: MESSAGE_LOG_IN_SUCCESS };
+    this._user.setActiveUserToLocalStorage(
+      {
+        id: user.id,
+        login: user.login,
+        name: user.name,
+        role: user.role
+      } as UserFoLocalStorage
+    );
+    return { type: SUCCESS, code: SUCCESS_CODE, message: MESSAGE_GOOD_JOB };
   }
 
   private static validatePassword(password: string, user: any): boolean {

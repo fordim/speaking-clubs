@@ -1,4 +1,7 @@
-<div class="root">
+<div class="layout" *ngIf="(isLogInSuccess$ | async)">
+  <app-layout></app-layout>
+</div>
+<div class="wrapper">
   <div class="modal" @fadeInModal *ngIf="(newGameModal$ | async)" >
     <think-it-up-new-game-modal></think-it-up-new-game-modal>
   </div>

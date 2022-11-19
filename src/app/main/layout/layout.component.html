@@ -1,15 +1,11 @@
-<header>
-  <div class="wrapper">
-    <div class="user-block">
-      <a routerLink="" class="button" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">Main page</a>
-      <p *ngIf="(activeUser$ | async)">User: {{ activeUserName$ | async }}</p>
-    </div>
-    <div class="game-block" [class.ban-block]="!(activeUser$ | async)">
-      <p>Games:</p>
-      <a routerLink="think-it-up" class="button" routerLinkActive="active">Think-it-up</a>
-    </div>
+<header *ngIf="(activeUser$ | async)">
+  <div class="user-block">
+    <img class="alUser" src="{{ alUser }}" alt="">
+    <img class="triangle" src="{{ triangle }}" alt="">
+    <div class="userName">{{ activeUserName$ | async }}</div>
   </div>
-  <div class="logout-block" [class.ban-block]="!(activeUser$ | async)">
+  <div class="right-block">
+    <button routerLink="" class="button" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">Main page</button>
     <button routerLink="" class="button" (click)="logout()">Logout</button>
   </div>
 </header>

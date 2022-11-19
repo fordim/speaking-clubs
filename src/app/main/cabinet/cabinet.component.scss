@@ -1,0 +1,52 @@
+.wrapper {
+  background: #FFF4C5;
+  height: 750px;
+  position: relative;
+}
+
+.ban-wrapper {
+  opacity: 0.4;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.alGames {
+  position: absolute;
+  width: 450px;
+  height: 350px;
+  bottom: 5px;
+  left: 450px;
+}
+
+.games {
+  padding-top: 175px;
+  width: 575px;
+  height: 325px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-evenly;
+}
+
+.game-button {
+  width: 250px;
+  height: 80px;
+  background: #FFFFFF;
+  padding: 10px;
+  color: black;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 50px;
+  border: none;
+  line-height: 35px;
+  font-size: 27px;
+}
+
+.active {
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 193, 255, 0.7),0 0 20px rgba(0, 193, 255, 0.7),0 0 30px rgba(0, 193, 255, 0.7),0 0 40px rgba(0, 193, 255, 0.7);
+  }
+}

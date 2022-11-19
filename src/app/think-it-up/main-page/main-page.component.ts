@@ -16,15 +16,13 @@ export class MainPageComponent implements OnInit{
   hasGeneralModal$ = this._board.hasGeneralModal$;
   endGameModal$ = this._board.endGameModal$;
   bigCardModal$ = this._board.bigCardModal$;
+  isLogInSuccess$ = this._user.activeUser$;
 
   constructor(private _board: BoardService, private _user: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    if (!this._user.isActiveUserValid()) {
+    if (!this.isLogInSuccess$) {
       this.router.navigate(['']);
     }
-    // if (!this._user.activeUser$.value) {
-    //   this.router.navigate(['']);
-    // }
   }
 }

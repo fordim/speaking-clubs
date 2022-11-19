@@ -1,10 +1,20 @@
 export interface User {
-  name: string,
+  id: number,
   login: string,
-  password: string
+  name: string,
+  password: string,
+  role: string
+}
+
+export interface UserFoLocalStorage {
+  id: number,
+  login: string,
+  name: string,
+  role: string
 }
 
 export interface Modal {
+  type: string,
   code: number,
   message: string,
 }

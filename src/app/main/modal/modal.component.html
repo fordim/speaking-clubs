@@ -1,11 +1,8 @@
 <div class="wrapper">
-  <div class="modal-header">
-    <h3>Event:</h3>
-  </div>
-  <div class="modal-content">
+  <img class="alLayDown" src="{{ alThinking }}" alt="" *ngIf="type === 'error'">
+  <img class="alNice" src="{{ alNice }}" alt="" *ngIf="type === 'success'">
+  <div class="modal-content" [class.success]="type === 'success'">
     <p>{{ contentText }}</p>
-  </div>
-  <div class="modal-footer">
     <button class="modal-button" (click)="submit()">{{ buttonText }}</button>
   </div>
 </div>

@@ -5,17 +5,24 @@ import { LayoutComponent } from './layout/layout.component';
 import { ModalComponent } from './modal/modal.component';
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "../app-routing.module";
+import { CabinetComponent } from './cabinet/cabinet.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    LayoutComponent,
-    ModalComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    AppRoutingModule
-  ]
+    declarations: [
+        HomeComponent,
+        LayoutComponent,
+        ModalComponent,
+        CabinetComponent,
+        AuthComponent
+    ],
+    exports: [
+        LayoutComponent
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        AppRoutingModule
+    ]
 })
 export class MainModule { }
