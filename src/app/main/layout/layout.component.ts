@@ -9,13 +9,11 @@ import { UserService } from "../../shared/services/user.service";
 export class LayoutComponent {
 
   activeUser$ = this._user.activeUser$;
-  activeUserName$ = this._user.activeUserName$;
 
   alUser = '/assets/main/images/al-user.png';
   triangle = '/assets/main/images/triangle.png';
 
-  constructor(private _user: UserService) {
-  }
+  constructor(private _user: UserService) {}
 
   public logout() {
     this._user.logoutUser();

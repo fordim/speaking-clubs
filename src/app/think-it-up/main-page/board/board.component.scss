@@ -1,13 +1,12 @@
 .wrapper {
   height: 500px;
+  min-width: 1400px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .board {
-  width: 800px;
-  height: 400px;
   display: flex;
   justify-content: space-between;
 }

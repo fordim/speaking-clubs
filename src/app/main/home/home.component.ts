@@ -17,13 +17,11 @@ export class HomeComponent implements OnInit {
   public modalType$ = new BehaviorSubject<string>('');
   public contentTextEvent$ = new BehaviorSubject<string>('');
   public buttonTextEvent$ = new BehaviorSubject<string>('');
-  public isLogInSuccess$ = this._user.activeUser$;
+  public isLogInSuccess$ = this._user.isLogInSuccess$;
 
   constructor(private _user: UserService, private _userApi: UserApiService) { }
 
   ngOnInit(): void {
-    this.isLogInSuccess$.next(this._user.getActiveUser());
-
     //TODO test api
     // this._userApi.get();
   }
@@ -33,7 +31,6 @@ export class HomeComponent implements OnInit {
 
     if (this.isLogInSuccess$.value){
       this._user.activateUser();
-      this._user.setActiveUserName();
     }
   }
 
@@ -42,7 +39,7 @@ export class HomeComponent implements OnInit {
       this.buttonTextEvent$.next(OK);
     } else {
       this.buttonTextEvent$.next(CONTINUE);
-      this.isLogInSuccess$.next(true);
+      this._user.logInSuccess();
     }
 
     this.contentTextEvent$.next(modal.message);

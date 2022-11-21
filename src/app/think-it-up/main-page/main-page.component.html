@@ -1,4 +1,4 @@
-<div class="layout" *ngIf="(isLogInSuccess$ | async)">
+<div class="layout" *ngIf="(activeUser$ | async)">
   <app-layout></app-layout>
 </div>
 <div class="wrapper">

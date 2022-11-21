@@ -31,6 +31,9 @@ export class BoardComponent {
   }
 
   public openBigCard(): void {
+    if (this.openCategory$.value.text === '') {
+      return;
+    }
     this._board.openBigCardModal();
   }
 }

@@ -2,7 +2,7 @@
   <div class="user-block">
     <img class="alUser" src="{{ alUser }}" alt="">
     <img class="triangle" src="{{ triangle }}" alt="">
-    <div class="userName">{{ activeUserName$ | async }}</div>
+    <div class="userName">{{ (activeUser$ | async)?.name }}</div>
   </div>
   <div class="right-block">
     <button routerLink="" class="button" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">Main page</button>

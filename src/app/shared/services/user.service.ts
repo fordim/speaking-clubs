@@ -1,68 +1,41 @@
 import { Injectable } from '@angular/core';
 import { User, UserFoLocalStorage } from "../../main/constants/interface";
-import { BehaviorSubject}  from "rxjs";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  users: User[] = [
-    {
-      id: 1,
-      login: 'admin',
-      name: 'Admin',
-      password: 'admin',
-      role: 'admin',
-    },
-    {
-      id: 2,
-      login: 'speaking-clubs-teacher@skyeng.ru',
-      name: 'Teacher',
-      password: '54321',
-      role: 'teacher',
-    },
-  ];
-
-  activeUser$ = new BehaviorSubject<boolean>(false);
-  activeUserName$ = new BehaviorSubject<string | null>('');
+  activeUser$ = new BehaviorSubject<User | null>(null);
+  isLogInSuccess$ = new BehaviorSubject<boolean>(false);
 
   constructor() {
     this.activeUser$.next(this.getActiveUser());
-    this.activeUserName$.next(this.getActiveUserName());
+    this.isLogInSuccess$.next(!!this.getActiveUser());
   }
 
   public activateUser(): void {
-    this.activeUser$.next(true);
+    this.activeUser$.next(this.getActiveUser());
+  }
+
+  public logInSuccess(): void {
+    this.isLogInSuccess$.next(true);
   }
 
   public logoutUser(): void {
     this.removeActiveUserFromLocalStorage();
-    this.activeUser$.next(false);
-    this.activeUserName$.next('');
+    this.activeUser$.next(null);
+    this.isLogInSuccess$.next(false);
   }
 
-  public getActiveUser(): boolean {
-    let activeUser = window.localStorage.getItem('activeUser') ?? '';
-    return activeUser !== '';
-  }
-
-  public getActiveUserName(): string {
+  public getActiveUser(): User | null {
     let activeUser = window.localStorage.getItem('activeUser') ?? '';
     if (activeUser === '') {
-      return '';
+      return null;
     }
 
-    let activeUserObject = JSON.parse(activeUser);
-    return activeUserObject.name
-  }
-
-  public setActiveUserName(): void {
-    let activeUser = window.localStorage.getItem('activeUser') ?? '';
-    if (activeUser !== '') {
-      let activeUserObject = JSON.parse(activeUser);
-      this.activeUserName$.next(activeUserObject.name)
-    }
+    return JSON.parse(activeUser);
   }
 
   public setActiveUserToLocalStorage(user: UserFoLocalStorage): void {
@@ -73,13 +46,14 @@ export class UserService {
     window.localStorage.removeItem('activeUser');
   }
 
-  public isActiveUserValid(): boolean {
-    let activeUser = window.localStorage.getItem('activeUser') ?? '';
-    if (activeUser === '') {
+  public isActiveUserValidForGame(): boolean {
+    const activeUser = this.activeUser$.value;
+
+    if (activeUser === null || activeUser.login !== '1_speaking.club.junior@skyeng.ru' && activeUser.login !== 'admin') {
       return false;
     }
 
-    //TODO - блокировать все страницы, а не только игру
-    return !!this.users.filter(user => user.login === 'speaking-clubs-teacher@skyeng.ru').shift();
+    //TODO - блокировать по ролям
+    return true;
   }
 }

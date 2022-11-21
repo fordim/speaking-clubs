@@ -1,4 +1,4 @@
-import {Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BoardService } from "../services/board.service";
 import { FADE_IN_BIG_CARD_ANIMATION, FADE_IN_MODAL_ANIMATION } from "./animations";
 import { UserService } from "../../shared/services/user.service";
@@ -16,12 +16,12 @@ export class MainPageComponent implements OnInit{
   hasGeneralModal$ = this._board.hasGeneralModal$;
   endGameModal$ = this._board.endGameModal$;
   bigCardModal$ = this._board.bigCardModal$;
-  isLogInSuccess$ = this._user.activeUser$;
+  activeUser$ = this._user.activeUser$;
 
   constructor(private _board: BoardService, private _user: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    if (!this.isLogInSuccess$) {
+    if (!this._user.isActiveUserValidForGame()) {
       this.router.navigate(['']);
     }
   }
