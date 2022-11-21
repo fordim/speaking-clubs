@@ -1,8 +1,16 @@
 import { Component } from '@angular/core';
-import { AuthService } from "../services/auth.service";
 import { NgForm } from "@angular/forms";
-import { ERROR_CODE } from "../constants/consts";
+import {
+  ERROR,
+  MESSAGE_GOOD_JOB,
+  MESSAGE_SOMETHING_IS_WRONG,
+  SUCCESS,
+} from "../constants/consts";
 import { HomeComponent } from "../home/home.component";
+import { UserApiService } from "../../shared/services/user-api.service";
+import { UserFoLocalStorage, UserLogInRequest } from "../constants/interface";
+import { UserService } from "../../shared/services/user.service";
+import {HttpStatusCode} from "@angular/common/http";
 
 @Component({
   selector: 'app-auth',
@@ -15,20 +23,39 @@ export class AuthComponent {
 
   modal$ = this.home.modal$;
 
-  constructor(private _auth: AuthService, private home: HomeComponent) { }
+  constructor(private home: HomeComponent, private _userApi: UserApiService, private _user: UserService) { }
 
   public logIn(form: NgForm): void {
     if (form.valid === false) {
       return;
     }
 
-    const logInRequest = this._auth.logIn(form.value.login, form.value.password);
+    const user$ = this._userApi.logIn({login: form.value.login, password: form.value.password} as UserLogInRequest);
 
-    if (logInRequest.code === ERROR_CODE) {
-      this.home.showModal(logInRequest.message, logInRequest.type, true);
-      return;
-    }
+    user$.subscribe( user => {
+        if (user === null) {
+          this.home.showModal({
+            type: ERROR,
+            code: HttpStatusCode.InternalServerError,
+            message: MESSAGE_SOMETHING_IS_WRONG,
+          });
+          return;
+        }
 
-    this.home.showModal(logInRequest.message, logInRequest.type);
+        this._user.setActiveUserToLocalStorage(
+          {
+            id: user.id,
+            login: user.login,
+            name: user.name,
+            role: user.role
+          } as UserFoLocalStorage
+        );
+
+        this.home.showModal({
+          type: SUCCESS,
+          code: HttpStatusCode.Ok,
+          message: MESSAGE_GOOD_JOB,
+        });
+    });
   }
 }

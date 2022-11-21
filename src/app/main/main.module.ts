@@ -17,7 +17,7 @@ import { AuthComponent } from './auth/auth.component';
         AuthComponent
     ],
     exports: [
-        LayoutComponent
+        LayoutComponent,
     ],
     imports: [
         CommonModule,

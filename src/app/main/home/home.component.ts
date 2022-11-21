@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from "rxjs";
-import { AuthService } from "../services/auth.service";
 import { UserService } from "../../shared/services/user.service";
 import { CONTINUE, OK } from "../constants/consts";
 import { UserApiService } from "../../shared/services/user-api.service";
+import { Modal } from "../constants/interface";
+import { HttpStatusCode } from "@angular/common/http";
 
 @Component({
   selector: 'app-home',
@@ -18,13 +19,13 @@ export class HomeComponent implements OnInit {
   public buttonTextEvent$ = new BehaviorSubject<string>('');
   public isLogInSuccess$ = this._user.activeUser$;
 
-  constructor(private _auth: AuthService, private _user: UserService, private _userApi: UserApiService) { }
+  constructor(private _user: UserService, private _userApi: UserApiService) { }
 
   ngOnInit(): void {
     this.isLogInSuccess$.next(this._user.getActiveUser());
 
     //TODO test api
-    this._userApi.get();
+    // this._userApi.get();
   }
 
   public closeModal() {
@@ -36,16 +37,16 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public showModal( textEvent: string, type: string, error: boolean = false ): void {
-    this.modal$.next(true);
-    this.contentTextEvent$.next(textEvent);
-    this.modalType$.next(type);
-
-    if (error) {
+  public showModal( modal: Modal ): void {
+    if (modal.code === HttpStatusCode.InternalServerError) {
       this.buttonTextEvent$.next(OK);
     } else {
       this.buttonTextEvent$.next(CONTINUE);
       this.isLogInSuccess$.next(true);
     }
+
+    this.contentTextEvent$.next(modal.message);
+    this.modalType$.next(modal.type);
+    this.modal$.next(true);
   }
 }

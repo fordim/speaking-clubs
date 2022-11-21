@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { UserService } from "../../shared/services/user.service";
-import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: 'app-layout',
@@ -15,10 +14,10 @@ export class LayoutComponent {
   alUser = '/assets/main/images/al-user.png';
   triangle = '/assets/main/images/triangle.png';
 
-  constructor(private _user: UserService, private _auth: AuthService) {
+  constructor(private _user: UserService) {
   }
 
   public logout() {
-    this._auth.logout();
+    this._user.logoutUser();
   }
 }

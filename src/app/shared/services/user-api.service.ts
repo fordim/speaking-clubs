@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpStatusCode} from "@angular/common/http";
 import { environment } from "../../../environments/environment";
-import {catchError, Observable, of, throwError} from 'rxjs';
+import {catchError, map, Observable, of, throwError} from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import {User, UserLogInRequest} from "../../main/constants/interface";
 
 @Injectable({
   providedIn: 'root'
@@ -11,21 +12,30 @@ export class UserApiService {
 
   constructor(private http: HttpClient) { }
 
+  //test API
   public get(): void {
-    // const test$ = this.http.get( environment.apiUrl + 'api/users');
-    const test$ = this.http.get( environment.apiUrl + 'api/user/10').pipe(catchError(this.handleError));
-    //
-
-    // test$.pipe(
-    //   catchError(this.handleError)
-    // );
-
-
+    const test$ = this.http.get<User>( environment.apiUrl + 'api/user/1').pipe(catchError(this.handleError));
     test$.pipe().subscribe(data => console.log(data));
+  }
+
+  public logIn(request: UserLogInRequest): Observable<User | null> {
+    //TODO Подставлять сразу request
+    return this.http.post<User | null>( environment.apiUrl + 'api/user/login', {
+      'login': request.login,
+      'password': request.password
+    })
+      .pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse): Observable<null> {
     if (error.status === HttpStatusCode.NotFound) {
+      // return of(error.error);
+      return of(null);
+    }
+
+    if (error.status === HttpStatusCode.BadRequest) {
+      //TODO Выводить ошибку бека
+      // return of(error.error);
       return of(null);
     } else {
       // The backend returned an unsuccessful response code.

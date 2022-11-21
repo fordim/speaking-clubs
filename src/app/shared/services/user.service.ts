@@ -37,7 +37,9 @@ export class UserService {
   }
 
   public logoutUser(): void {
+    this.removeActiveUserFromLocalStorage();
     this.activeUser$.next(false);
+    this.activeUserName$.next('');
   }
 
   public getActiveUser(): boolean {
