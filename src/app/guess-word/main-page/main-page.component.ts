@@ -24,7 +24,7 @@ export class MainPageGuessWordComponent implements OnInit {
       this.router.navigate(['']);
     }
 
-    this._game.activateChooseCategory();
+    this._game.activateChooseCategory(true);
   }
 
 }
