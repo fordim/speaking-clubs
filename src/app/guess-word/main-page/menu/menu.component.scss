@@ -1,24 +1,20 @@
 .wrapper {
   display: flex;
-  background-color: #EFCEEB;
-  width: 175px;
+  width: 150px;
   flex-direction: column;
   position: absolute;
-  border: 1px solid #AD61FF;
-  border-radius: 5px;
-  margin: 70px 15px 15px 15px;
-  padding: 15px;
+  margin: 100px 0 0 50px;
 }
 
 .button {
-  background: #009EE4;
+  background: #00C1FF;
   color: white;
   text-align: center;
   display: inline-block;
   text-decoration: none;
   border-radius: 5px;
   line-height: 35px;
-  border: 1px solid #3772e8;
+  border: none;
   font-size: 14px;
   padding: 5px;
   cursor: pointer;
@@ -30,8 +26,4 @@
 
 .button:hover{
   background: #87CEFAFF;
-}
-
-.cancel {
-  background-color: palevioletred;
 }

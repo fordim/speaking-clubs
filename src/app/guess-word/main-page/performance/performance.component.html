@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <div class="left-block">
+    <div class="hearts">
+      <div class="heart" *ngFor="let heart of hearts$ | async">
+        <img class="heartIcon" src="{{ heartIcon }}" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="al">
+    <img class="alHiIcon" *ngIf="(al$ | async)?.type === 'hi'" src="{{ alHiIcon }}" alt="">
+    <img class="alSadIcon" *ngIf="(al$ | async)?.type === 'sad'" src="{{ alSadIcon }}" alt="">
+    <img class="alThinkingIcon" *ngIf="(al$ | async)?.type === 'thinking'" src="{{ alThinkingIcon }}" alt="">
+    <img class="alPanicIcon" *ngIf="(al$ | async)?.type === 'panic'" src="{{ alPanicIcon }}" alt="">
+    <img class="ufoIcon" *ngIf="(al$ | async)?.type === 'ufo'" src="{{ ufoIcon }}" alt="">
+  </div>
+  <div class="dialog">
+    <img class="triangleIcon" src="{{ triangleIcon }}" alt="">
+    <p class="text">{{ (al$ | async)?.text }}</p>
+  </div>
+</div>

@@ -4,7 +4,7 @@ import { PlayerService } from "../../services/player.service";
 import { GameService } from "../../services/game.service";
 import { BehaviorSubject, delay } from "rxjs";
 import { Player } from "../../constants/interface";
-import { DEFAULT_CONFETTI_SETTINGS, playConfetti } from "../play-confetti";
+import { DEFAULT_CONFETTI_SETTINGS, playConfetti } from "../../../shared/play-confetti";
 
 @Component({
   selector: 'think-it-up-end-game-modal',

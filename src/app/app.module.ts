@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MainModule } from "./main/main.module";
 import { ThinkItUpModule } from "./think-it-up/think-it-up.module";
 import { HttpClientModule } from "@angular/common/http";
+import { GuessWordModule } from "./guess-word/guess-word.module";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     MainModule,
     ThinkItUpModule,
-    HttpClientModule
+    HttpClientModule,
+    GuessWordModule
   ],
   providers: [],
   bootstrap: [AppComponent]

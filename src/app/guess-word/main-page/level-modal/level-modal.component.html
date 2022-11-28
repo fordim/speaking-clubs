@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="modal-header">
+    <img class="closeIcon" src="{{ closeIcon }}" alt="" (click)="closeModal()">
+    <span class="title">Choose the level:</span>
+  </div>
+  <div class="modal-content">
+    <img
+      class="starIcon"
+      src="{{ starIcon }}"
+      alt=""
+      *ngFor="let value of [1, 2, 3]"
+      (click)="changeLevel(value)"
+      [class.-active]="actualLevelNumber >= value"
+    >
+  </div>
+  <span class="levelName">{{ (level$ | async)?.name }}</span>
+</div>

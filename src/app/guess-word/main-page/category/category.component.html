@@ -1,0 +1,6 @@
+<div class="wrapper">
+  <div class="title">Choose the category</div>
+  <div class="categories">
+    <button class="button" *ngFor="let category of categories" (click)="chooseCategory(category)">{{ category }}</button>
+  </div>
+</div>

@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./main-page.component.scss'],
   animations: [FADE_IN_BIG_CARD_ANIMATION, FADE_IN_MODAL_ANIMATION],
 })
-export class MainPageComponent implements OnInit{
+export class MainPageThinkItUpComponent implements OnInit{
   newGameModal$ = this._board.newGameModal$;
   addPlayerModal$ = this._board.addPlayerModal$;
   hasGeneralModal$ = this._board.hasGeneralModal$;

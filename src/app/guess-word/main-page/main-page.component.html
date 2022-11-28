@@ -1,0 +1,17 @@
+<div class="layout" *ngIf="(activeUser$ | async)">
+  <app-layout></app-layout>
+</div>
+<guess-word-menu *ngIf="!(chooseCategoryPage$ | async)"></guess-word-menu>
+<div class="wrapper">
+  <div class="modal" @fadeInModal *ngIf="(levelModal$ | async)" >
+    <guess-word-level-modal></guess-word-level-modal>
+  </div>
+  <div class="modal" @fadeInModal *ngIf="(endGameModal$ | async)">
+    <guess-word-end-game-modal></guess-word-end-game-modal>
+  </div>
+  <body [class.ban-body]=" (levelModal$ | async) || (endGameModal$ | async) ">
+    <guess-word-category *ngIf="(chooseCategoryPage$ | async)"></guess-word-category>
+    <guess-word-performance *ngIf="!(chooseCategoryPage$ | async)"></guess-word-performance>
+    <guess-word-word *ngIf="!(chooseCategoryPage$ | async)"></guess-word-word>
+  </body>
+</div>

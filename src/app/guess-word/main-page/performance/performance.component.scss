@@ -1,0 +1,89 @@
+.wrapper {
+  margin-top: 40px;
+  width: 1020px;
+  height: 380px;
+  display: flex;
+}
+
+.left-block {
+  width: 400px;
+  display: flex;
+  align-content: center;
+}
+
+.hearts {
+  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.heart {
+  margin: 0 5px;
+}
+
+.heartIcon {
+  width: 50px;
+  height: 50px;
+}
+
+.al {
+  margin-bottom: 20px;
+  width: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 2;
+}
+
+.alHiIcon {
+  width: 200px;
+  height: 350px
+}
+
+.alSadIcon {
+  width: 215px;
+  height: 315px
+}
+
+.alThinkingIcon {
+  width: 180px;
+  height: 280px
+}
+
+.alPanicIcon {
+  width: 210px;
+  height: 360px
+}
+
+.ufoIcon {
+  width: 350px;
+  height: 380px
+}
+
+.dialog {
+  margin-top: 20px;
+  background: #FFFFFF;
+  width: 400px;
+  height: 150px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  font-family: Arial, serif;
+  font-size: 25px;
+  font-weight: 100;
+  line-height: 35px;
+  position: relative;
+}
+
+.text {
+  margin: 0 50px;
+}
+
+.triangleIcon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 90px;
+  left: -20px;
+}

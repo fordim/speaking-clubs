@@ -1,0 +1,58 @@
+.wrapper {
+  width: 600px;
+  background-color: #FFFFFF;
+  border-radius: 25px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.modal-header {
+  text-align: center;
+  padding: 10px;
+  font-size: 28px;
+  margin: 25px 0;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-bottom: 25px;
+}
+
+.title {
+  font-family: Comic Sans MS, serif;
+  font-size: 50px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.text {
+  font-family: Arial, serif;
+  font-size: 25px;
+  font-weight: 100;
+  line-height: 35px;
+  text-align: center;
+}
+
+.closeIcon {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  right: 10px;
+}
+
+.al-image {
+  position: relative;
+  width: 325px;
+  height: 380px;
+  top: -40px;
+  left: -45px;
+}
+
+.alWin {
+  width: 325px;
+  height: 400px;
+  position: absolute;
+}

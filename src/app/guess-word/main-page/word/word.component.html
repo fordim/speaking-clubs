@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="word">
+    <div class="word-letter" *ngFor="let letter of word$ | async" [class.-wrong]="letter.type === 'wrong'">
+      {{ letter.type === 'right' || letter.type === 'wrong' ? letter.letter : '' }}
+      <img class="rectangle" src="{{ rectangle }}" *ngIf="letter.letter !== ' '" alt="">
+    </div>
+  </div>
+  <div class="letters">
+    <div
+      class="letter"
+      *ngFor="let letter of letters$ | async"
+      [class.-right]="letter.type === 'right'"
+      [class.-wrong]="letter.type === 'wrong'"
+      (click)="chooseLetter(letter.letter)"
+    >
+      {{ letter.letter }}
+    </div>
+  </div>
+</div>

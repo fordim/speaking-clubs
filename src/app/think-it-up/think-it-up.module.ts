@@ -8,7 +8,7 @@ import { EndGameModalComponent } from "./main-page/end-game-modal/end-game-modal
 import { GeneralModalComponent } from "./main-page/general-modal/general-modal.component";
 import { NewGameModalComponent } from "./main-page/new-game-modal/new-game-modal.component";
 import { PlayersComponent } from "./main-page/players/players.component";
-import { MainPageComponent } from "./main-page/main-page.component";
+import { MainPageThinkItUpComponent } from "./main-page/main-page.component";
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MainModule } from "../main/main.module";
@@ -23,10 +23,10 @@ import { MainModule } from "../main/main.module";
     GeneralModalComponent,
     NewGameModalComponent,
     PlayersComponent,
-    MainPageComponent
+    MainPageThinkItUpComponent
   ],
   exports: [
-    MainPageComponent
+    MainPageThinkItUpComponent
   ],
   imports: [
     CommonModule,
