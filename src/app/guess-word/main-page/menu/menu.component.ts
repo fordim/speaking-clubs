@@ -8,6 +8,9 @@ import { GameService } from "../../services/game.service";
 })
 export class MenuComponent {
 
+  category$ = this._game.category$;
+  level$ = this._game.level$;
+
   constructor(private _game: GameService) { }
 
   public newWord(): void {

@@ -25,6 +25,8 @@ export class MainPageGuessWordComponent implements OnInit {
     }
 
     this._game.activateChooseCategory(true);
+    this._game.deactivateEndGameModal();
+    this._game.deactivateLevelModal();
   }
 
 }

@@ -2,4 +2,8 @@
   <button class="button" (click)="newWord()">New word</button>
   <button class="button" (click)="changeCategory()">Categories</button>
   <button class="button" (click)="changeLevel()">Level</button>
+  <div class="category-text">
+    <div><b>Category:</b> {{ category$ | async }}</div>
+    <div><b>Level:</b> {{ (level$ | async)?.name }}</div>
+  </div>
 </div>

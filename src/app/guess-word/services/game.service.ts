@@ -250,6 +250,10 @@ export class GameService {
         this.setNewWordsAndUpdateCategory(CategoriesType.clothes);
         break;
       }
+      case CategoriesType.faceAndBody: {
+        this.setNewWordsAndUpdateCategory(CategoriesType.faceAndBody);
+        break;
+      }
       case CategoriesType.sports: {
         this.setNewWordsAndUpdateCategory(CategoriesType.sports);
         break;
