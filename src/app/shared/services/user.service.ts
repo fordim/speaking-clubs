@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User, UserFoLocalStorage } from "../../main/constants/interface";
 import { BehaviorSubject } from "rxjs";
+import { RoleType } from "../constants/consts";
 
 @Injectable({
   providedIn: 'root'
@@ -48,12 +49,6 @@ export class UserService {
 
   public isActiveUserValidForGame(): boolean {
     const activeUser = this.activeUser$.value;
-
-    if (activeUser === null || activeUser.login !== '1_speaking.club.junior@skyeng.ru' && activeUser.login !== 'admin') {
-      return false;
-    }
-
-    //TODO - блокировать по ролям
-    return true;
+    return !(activeUser === null || activeUser.role !== RoleType.teacher && activeUser.role !== RoleType.admin);
   }
 }
