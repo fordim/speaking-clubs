@@ -1,0 +1,161 @@
+.root {
+  background: linear-gradient(132.47deg, rgba(130, 195, 255, 0.54) 32.58%, rgba(146, 216, 255, 0.8) 52.13%, #DEDFFF 84.48%), #E6DDFF;;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.wreathAll {
+  position: absolute;
+  width: 1200px;
+  height: 50px;
+  top: -15px;
+
+  @media screen and (max-width: 600px) {
+    width: 380px;
+    height: 25px;
+    top: -5px;
+  }
+}
+
+.highlight {
+  position: absolute;
+  z-index: 1;
+  height: 1900px;
+  width: 1200px;
+
+  @media screen and (max-width: 600px) {
+    width: 370px;
+    height: 800px;
+  }
+}
+
+.wrapper {
+  width: 900px;
+  z-index: 2;
+}
+
+.top-content {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  @media screen and (max-width: 600px) {
+    margin-top: 50px;
+  }
+}
+
+.left-block-top-content {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  font-family: Arial, serif;
+
+  @media screen and (max-width: 600px) {
+    width: 190px;
+    margin-left: 10px;
+  }
+}
+
+.skysmart {
+  cursor: pointer;
+  width: 125px;
+  margin-bottom: 30px;
+
+  @media screen and (max-width: 600px) {
+    width: 75px;
+    margin-bottom: 15px;
+  }
+}
+
+.title {
+  font-size: 85px;
+  margin-bottom: 45px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 45px;
+    margin-bottom: 10px;
+  }
+}
+
+.text {
+  font-size: 30px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 16px;
+  }
+}
+
+.snow-man {
+  width: 50%;
+  height: 50%;
+
+  @media screen and (max-width: 600px) {
+    width: 45%;
+    height: 45%;
+  }
+}
+
+.middle-content {
+  display: flex;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.tree {
+  width: 75%;
+  height: 75%;
+}
+
+.presents {
+  width: 50%;
+  height: 60%;
+  position: absolute;
+  right: -25px;
+  top: 75px;
+
+  @media screen and (max-width: 600px) {
+    width: 40%;
+    height: 50%;
+    right: 0;
+  }
+}
+
+.condition {
+  width: 115%;
+  height: 115%;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.snow {
+  position: absolute;
+  opacity: 0.4;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+.snowflakeOne {
+  width: 35%;
+  height: 35%;
+  left: -200px;
+}
+
+.snowflakeTwo {
+  width: 300px;
+  height: 300px;
+  right: -200px;
+}
+
+.snowflakeThree {
+  width: 250px;
+  height: 250px;
+  right: -125px;
+  bottom: 0;
+}
