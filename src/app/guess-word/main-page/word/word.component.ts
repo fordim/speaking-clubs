@@ -15,7 +15,7 @@ export class WordComponent {
 
   constructor(private _game: GameService) {}
 
-  public chooseLetter(letter: string): void {
-    this._game.chooseLetter(letter);
+  public chooseLetter(letter: string, type: string): void {
+    this._game.chooseLetter(letter, type);
   }
 }

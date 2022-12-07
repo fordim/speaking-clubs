@@ -14,6 +14,7 @@ export class PerformanceComponent {
   alThinkingIcon = '/assets/guess-word/images/al-thinking.png';
   alPanicIcon = '/assets/guess-word/images/al-panic.png';
   ufoIcon = '/assets/guess-word/images/ufo.png';
+  alNiceIcon = '/assets/guess-word/images/al-nice.png';
   triangleIcon = '/assets/guess-word/images/triangle.png';
 
   hearts$ = this._game.hearts$;

@@ -3,13 +3,15 @@ import { BehaviorSubject } from "rxjs";
 import { Al, Letter, Level } from "../constants/interface";
 import {
   AlType,
+  GOOD_JOB_TEXT,
   HI_TEXT,
   LETTERS,
   LetterType,
   LevelName,
   PANIC_TEXT,
   SAD_TEXT,
-  THINKING_TEXT,
+  THINKING_TEXT_THREE_HEARTS,
+  THINKING_TEXT_TWO_HEARTS,
   UFO_TEXT
 } from "../constants/consts";
 import {
@@ -132,8 +134,13 @@ export class GameService {
     this.newGame();
   }
 
-  public chooseLetter(letter: string): void {
-    if (this.al$.value.heart === 0 || this.endGame$.value || this.word$.value.length === 0) {
+  public chooseLetter(letter: string, type: string): void {
+    if (
+      this.al$.value.heart === 0 ||
+      this.endGame$.value ||
+      this.word$.value.length === 0 ||
+      type !== LetterType.default
+    ) {
       return;
     }
 
@@ -160,6 +167,8 @@ export class GameService {
 
     if (!isRightLetter) {
       this.loseOneHeart();
+    } else {
+      this.updateAl({ heart: this.al$.value.heart, type: AlType.nice, text: GOOD_JOB_TEXT });
     }
 
     if (this.checkLoseCondition()) {
@@ -201,8 +210,10 @@ export class GameService {
         this.updateAl({ heart: hearts, type: AlType.sad, text: SAD_TEXT });
         break;
       case 3:
+        this.updateAl({ heart: hearts, type: AlType.thinking, text: THINKING_TEXT_THREE_HEARTS });
+        break;
       case 2:
-        this.updateAl({ heart: hearts, type: AlType.thinking, text: THINKING_TEXT });
+        this.updateAl({ heart: hearts, type: AlType.thinking, text: THINKING_TEXT_TWO_HEARTS });
         break;
       case 1:
         this.updateAl({ heart: hearts, type: AlType.panic, text: PANIC_TEXT });

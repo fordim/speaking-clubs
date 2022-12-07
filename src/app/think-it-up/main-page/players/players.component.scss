@@ -7,6 +7,10 @@
   flex-wrap: wrap;
   align-content: space-around;
   justify-content: center;
+
+  @media screen and (max-width: 1450px) {
+    width: 990px;
+  }
 }
 
 .player {

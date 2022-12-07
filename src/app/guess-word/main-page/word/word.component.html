@@ -11,7 +11,7 @@
       *ngFor="let letter of letters$ | async"
       [class.-right]="letter.type === 'right'"
       [class.-wrong]="letter.type === 'wrong'"
-      (click)="chooseLetter(letter.letter)"
+      (click)="chooseLetter(letter.letter, letter.type)"
     >
       {{ letter.letter }}
     </div>

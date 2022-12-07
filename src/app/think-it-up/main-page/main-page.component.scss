@@ -5,6 +5,10 @@
   position: relative;
   min-width: 1400px;
   background-color: #FFFFFF;
+
+  @media screen and (max-width: 1450px) {
+    min-width: 1025px;
+  }
 }
 
 .layout {

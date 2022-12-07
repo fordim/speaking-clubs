@@ -4,6 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 1450px) {
+    min-width: 1025px;
+    justify-content: flex-end;
+  }
 }
 
 .board {
