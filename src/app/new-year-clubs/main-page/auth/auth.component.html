@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <img class="winterIcon" src="{{ winterIcon }}" alt="">
+  <img class="skysmartIcon" src="{{ skysmartIcon }}" alt="" (click)="goToLink()">
+  <div class="title">Адвент-календарь в Разговорных клубах</div>
+  <div class="mainForm" [class.ban-mainForm]="(errorModal$ | async)?.status">
+    <img class="bigCloudIcon" src="{{ bigCloudIcon }}" alt="">
+    <img class="smallCloudIcon" src="{{ smallCloudIcon }}" alt="">
+    <img class="clausHappyIcon" src="{{ clausHappyIcon }}" alt="">
+    <form class="form" #form="ngForm" (ngSubmit)="logIn(form)">
+      <div class="field">
+        <label>Войти под почтой зарегистрированной в клубах</label>
+        <input type="text" name="login" ngModel maxlength="35" minlength="3" required>
+      </div>
+      <button class="button">Войти</button>
+    </form>
+  </div>
+</div>

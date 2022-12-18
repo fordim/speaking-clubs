@@ -1,0 +1,17 @@
+<div class="root">
+  <div class="modal" *ngIf="(errorModal$ | async)?.status">
+    <new-year-clubs-error-modal></new-year-clubs-error-modal>
+  </div>
+  <div class="modal" *ngIf="(prizeModal$ | async)?.status">
+    <new-year-clubs-prize-modal></new-year-clubs-prize-modal>
+  </div>
+  <div class="highlight-wrapper"></div>
+  <body [class.ban-body]="(errorModal$ | async)?.status || (prizeModal$ | async)?.status">
+    <div class="wrapperAuth" *ngIf="!(isLogInSuccess$ | async)">
+      <new-year-clubs-auth></new-year-clubs-auth>
+    </div>
+    <div class="wrapperCabinet" *ngIf="(isLogInSuccess$ | async)">
+      <new-year-clubs-cabinet></new-year-clubs-cabinet>
+    </div>
+  </body>
+</div>

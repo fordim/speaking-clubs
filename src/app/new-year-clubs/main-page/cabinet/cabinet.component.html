@@ -1,0 +1,86 @@
+<div class="wrapper">
+  <img class="skysmartIcon" src="{{ skysmartIcon }}" alt="" (click)="goToLink()">
+  <img class="houseIcon" src="{{ houseIcon }}" alt="">
+  <div class="events" [class.ban-events]="(errorModal$ | async)?.status">>
+    <div class="eventRow">
+      <div
+        class="event event31"
+        [class.event-open]="(event31$ | async)?.status"
+        (click)="openEventModal(event31$.value.status, event31$.value.number)"
+      >{{ (event31$ | async)?.number }}</div>
+    </div>
+    <div class="eventRow2">
+      <div
+        class="event event28"
+        [class.event-open]="(event28$ | async)?.status"
+        (click)="openEventModal(event28$.value.status, event28$.value.number)"
+      >{{ (event28$ | async)?.number }}</div>
+      <div
+        class="event event28"
+        [class.event-open]="(event29$ | async)?.status"
+        (click)="openEventModal(event29$.value.status, event29$.value.number)"
+      >{{ (event29$ | async)?.number }}</div>
+      <div
+        class="event"
+        [class.event-open]="(event30$ | async)?.status"
+        (click)="openEventModal(event30$.value.status, event30$.value.number)"
+      >{{ (event30$ | async)?.number }}</div>
+    </div>
+    <div class="eventRow3">
+      <div
+        class="event event24"
+        [class.event-open]="(event24$ | async)?.status"
+        (click)="openEventModal(event24$.value.status, event24$.value.number)"
+      >{{ (event24$ | async)?.number }}</div>
+      <div
+        class="event event24"
+        [class.event-open]="(event25$ | async)?.status"
+        (click)="openEventModal(event25$.value.status, event25$.value.number)"
+      >{{ (event25$ | async)?.number }}</div>
+      <div
+        class="event event26"
+        [class.event-open]="(event26$ | async)?.status"
+        (click)="openEventModal(event26$.value.status, event26$.value.number)"
+      >{{ (event26$ | async)?.number }}</div>
+      <div
+        class="event"
+        [class.event-open]="(event27$ | async)?.status"
+        (click)="openEventModal(event27$.value.status, event27$.value.number)"
+      >{{ (event27$ | async)?.number }}</div>
+    </div>
+    <div class="eventBlock">
+      <div class="eventRow4">
+        <div
+          class="event"
+          [class.event-open]="(event23$ | async)?.status"
+          (click)="openEventModal(event23$.value.status, event23$.value.number)"
+        >{{ (event23$ | async)?.number }}</div>
+        <div
+          class="event"
+          [class.event-open]="(event22$ | async)?.status"
+          (click)="openEventModal(event22$.value.status, event22$.value.number)"
+        >{{ (event22$ | async)?.number }}</div>
+        <div
+          class="event"
+          [class.event-open]="(event21$ | async)?.status"
+          (click)="openEventModal(event21$.value.status, event21$.value.number)"
+        >{{ (event21$ | async)?.number }}</div>
+        <div
+          class="event"
+          [class.event-open]="(event20$ | async)?.status"
+          (click)="openEventModal(event20$.value.status, event20$.value.number)"
+        >{{ (event20$ | async)?.number }}</div>
+      </div>
+      <div
+        class="event"
+        [class.event-open]="(event19$ | async)?.status"
+        (click)="openEventModal(event19$.value.status, event19$.value.number)"
+      >{{ (event19$ | async)?.number }}</div>
+      <form class="form" #form="ngForm" (ngSubmit)="activateCode(form)">
+        <input type="text" name="code" ngModel maxlength="5" minlength="1" required>
+        <button class="button">открыть</button>
+      </form>
+    </div>
+  </div>
+
+</div>

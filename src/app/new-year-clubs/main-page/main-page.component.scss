@@ -1,0 +1,37 @@
+.root {
+  font-family: Arial, serif;
+  background: linear-gradient(132.47deg, rgba(130, 195, 255, 0.54) 32.58%, rgba(146, 216, 255, 0.8) 52.13%, #DEDFFF 84.48%), #E6DDFF;
+  display: flex;
+  justify-content: center;
+  min-height: 1025px;
+  height: 100vh;
+}
+
+.highlight-wrapper {
+  width: 100%;
+  min-height: 1025px;
+  height: 100%;
+  background-image: url('./../../../assets/new-year-clubs/images/highlight.png');
+  background-size: 600px 1000px;
+  position: absolute;
+  background-repeat: repeat;
+}
+
+body {
+  z-index: 2;
+}
+
+.modal {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  height: 100%;
+  margin-top: 75px;
+}
+
+.ban-body {
+  opacity: 0.4;
+  pointer-events: none;
+}

@@ -1,0 +1,158 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  font-family: Comic Sans MS, serif;
+}
+
+.ban-events {
+  opacity: 0.4;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.skysmartIcon {
+  position: absolute;
+  margin-top: 75px;
+  margin-right: 550px;
+  cursor: pointer;
+  width: 125px;
+  margin-bottom: 25px;
+  z-index: 7;
+
+  @media screen and (max-width: 600px) {
+    width: 75px;
+    margin-bottom: 15px;
+  }
+}
+
+.houseIcon {
+  width: 800px;
+}
+
+.events {
+  position: absolute;
+  margin-top: 330px;
+}
+
+.event {
+  border: 3px #D64F5F solid;
+  border-radius: 5px;
+  background-color: #D64F5F;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 36px;
+  padding: 5px 10px;
+  cursor: default;
+}
+
+.eventRow {
+  display: flex;
+  justify-content: center;
+}
+
+.eventRow2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.eventRow3 {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  padding-left: 30px;
+}
+
+.event31 {
+  font-size: 46px;
+  width: 60px;
+  height: 60px;
+  margin-left: 25px;
+  padding: 8px 12px;
+}
+
+.event28 {
+  margin-right: 35px;
+}
+
+.event24 {
+  margin-right: 50px;
+}
+
+.event26 {
+  margin-right: 100px;
+}
+
+.eventRow4 {
+  width: 170px;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eventBlock {
+  width: 370px;
+  margin-top: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form {
+  display: flex;
+  width: 100px;
+  flex-direction: column;
+  font-size: 20px;
+  wrap-option: 5;
+}
+
+label {
+  font-size: 14px;
+}
+
+input {
+  font-size: 16px;
+  width: 80px;
+  height: 30px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 3px #D64F5F solid;
+  background-color: #FFFFFF;
+  padding-left: 10px;
+  font-family: Comic Sans MS, serif;
+}
+
+input:focus {
+  outline: none !important;
+  box-shadow: 0 0 10px #cb7b7b;
+}
+
+.button {
+  display: block;
+  width: 80px;
+  background: #D64F5F;
+  margin: 10px auto;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 15px;
+  border: 1px #FFFFFF solid;
+  padding: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: Comic Sans MS, serif;
+}
+
+.button:hover{
+  background: #d07e85;
+}
+
+.event-open {
+  background-color: #FFFFFF;
+  color: black;
+  cursor: pointer;
+}
+
