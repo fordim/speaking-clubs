@@ -1,7 +1,7 @@
 <div class="wrapper">
   <img class="skysmartIcon" src="{{ skysmartIcon }}" alt="" (click)="goToLink()">
   <img class="houseIcon" src="{{ houseIcon }}" alt="">
-  <div class="events" [class.ban-events]="(errorModal$ | async)?.status">>
+  <div class="events" [class.ban-events]="(errorModal$ | async)?.status">
     <div class="eventRow">
       <div
         class="event event31"
@@ -77,5 +77,4 @@
       </form>
     </div>
   </div>
-
 </div>

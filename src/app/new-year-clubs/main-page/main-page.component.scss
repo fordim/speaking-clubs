@@ -5,16 +5,28 @@
   justify-content: center;
   min-height: 1025px;
   height: 100vh;
+  min-width: 800px;
+
+  @media screen and (max-width: 600px) {
+    min-height: 800px;
+    height: 105vh;
+    min-width: 400px;
+  }
 }
 
 .highlight-wrapper {
   width: 100%;
-  min-height: 1025px;
+  min-height: 800px;
   height: 100%;
   background-image: url('./../../../assets/new-year-clubs/images/highlight.png');
   background-size: 600px 1000px;
   position: absolute;
   background-repeat: repeat;
+
+  @media screen and (max-width: 600px) {
+    width: 400px;
+    min-height: 600px;
+  }
 }
 
 body {
@@ -29,6 +41,10 @@ body {
   z-index: 5;
   height: 100%;
   margin-top: 75px;
+
+  @media screen and (max-width: 600px) {
+    margin-top: 0;
+  }
 }
 
 .ban-body {

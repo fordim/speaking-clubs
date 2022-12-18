@@ -10,6 +10,11 @@
   z-index: 2;
   width: 900px;
   margin-top: 600px;
+
+  @media screen and (max-width: 600px) {
+    width: 400px;
+    margin-top: 600px;
+  }
 }
 
 .ban-mainForm {
@@ -26,6 +31,8 @@
   margin-bottom: 25px;
 
   @media screen and (max-width: 600px) {
+    margin-top: 25px;
+    margin-right: 275px;
     width: 75px;
     margin-bottom: 15px;
   }
@@ -38,6 +45,12 @@
   width: 600px;
   text-align: center;
   margin-bottom: 150px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 30px;
+    width: 300px;
+    margin-bottom: 200px;
+  }
 }
 
 .mainForm {
@@ -57,15 +70,28 @@
   font-size: 20px;
   wrap-option: 5;
   margin-top: 10px;
+
+  @media screen and (max-width: 600px) {
+    width: 325px;
+  }
 }
 
 .field {
   margin-top: 20px;
   margin-left: 40px;
+
+  @media screen and (max-width: 600px) {
+    margin-top: 20px;
+    margin-left: 45px;
+  }
 }
 
 label {
   font-size: 14px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 10px;
+  }
 }
 
 input {
@@ -77,6 +103,12 @@ input {
   border: none;
   background-color: #DEDEDE;
   padding-left: 10px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+    width: 225px;
+    height: 25px;
+  }
 }
 
 .clausHappyIcon {
@@ -84,6 +116,10 @@ input {
   width: 60%;
   top: -200px;
   left: -50px;
+
+  @media screen and (max-width: 600px) {
+    top: -160px;
+  }
 }
 
 .bigCloudIcon {
@@ -91,6 +127,10 @@ input {
   width: 30%;
   top: -40px;
   right: 20px;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 }
 
 .smallCloudIcon {
@@ -98,6 +138,10 @@ input {
   width: 17%;
   bottom: 40px;
   left: -130px;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 }
 
 .button {
@@ -112,6 +156,13 @@ input {
   font-size: 18px;
   border: none;
   cursor: pointer;
+
+  @media screen and (max-width: 600px) {
+    width: 80px;
+    line-height: 30px;
+    font-size: 16px;
+    margin: 15px auto 20px auto;
+  }
 }
 
 .button:hover{

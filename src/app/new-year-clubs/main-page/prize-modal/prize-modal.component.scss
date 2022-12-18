@@ -9,6 +9,11 @@
   position: relative;
   border: 2px #92D8FF solid;
   font-family: Comic Sans MS, serif;
+
+  @media screen and (max-width: 600px) {
+    width: 300px;
+    height: 180px;
+  }
 }
 
 .modal-content {
@@ -17,6 +22,12 @@
   font-size: 28px;
   width: 350px;
   margin-top: 50px;
+
+  @media screen and (max-width: 600px) {
+    margin-top: 25px;
+    width: 190px;
+    font-size: 14px;
+  }
 }
 
 .closeIcon {
@@ -24,6 +35,13 @@
   cursor: pointer;
   top: 10px;
   right: 10px;
+
+  @media screen and (max-width: 600px) {
+    width: 10%;
+    height: 10%;
+    top: 5px;
+    right: 5px;
+  }
 }
 
 .elfIcon {
@@ -31,6 +49,10 @@
   width: 40%;
   right: -60px;
   bottom: 0;
+
+  @media screen and (max-width: 600px) {
+    right: -40px;
+  }
 }
 
 .photoIcon {
@@ -38,6 +60,11 @@
   width: 27%;
   right: 20px;
   bottom: 20px;
+
+  @media screen and (max-width: 600px) {
+    right: 10px;
+    bottom: 10px;
+  }
 }
 
 .bottom-text {
@@ -45,6 +72,12 @@
   margin-right: 125px;
   font-size: 23px;
   text-align: center;
+
+  @media screen and (max-width: 600px) {
+    margin-top: 40px;
+    margin-right: 50px;
+    font-size: 12px;
+  }
 }
 
 .link-text {

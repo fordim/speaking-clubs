@@ -5,6 +5,7 @@ import { ModalType } from "../../constants/consts";
 import { UserFoLocalStorage } from "../../../main/constants/interface";
 import { UserService } from "../../../shared/services/user.service";
 import { UserApiService } from "../../../shared/services/user-api.service";
+import { RoleType } from "../../../shared/constants/consts";
 
 @Component({
   selector: 'new-year-clubs-auth',
@@ -38,6 +39,11 @@ export class AuthComponent {
 
     user$.subscribe( user => {
       if (user !== null) {
+        if (user.role === RoleType.teacher) {
+          this._main.openErrorModal(ModalType.errorEmail);
+          return;
+        }
+
         this._user.setActiveUserToLocalStorage(
           {
             id: user.id,
