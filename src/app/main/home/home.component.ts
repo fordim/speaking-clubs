@@ -22,8 +22,9 @@ export class HomeComponent implements OnInit {
   constructor(private _user: UserService, private _userApi: UserApiService) { }
 
   ngOnInit(): void {
-    //TODO test api
-    // this._userApi.get();
+    if (!this._user.isActiveUserValidForGame()) {
+      this._user.logoutUser();
+    }
   }
 
   public closeModal() {

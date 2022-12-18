@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpStatusCode} from "@angular/common/http";
+import { HttpClient, HttpStatusCode } from "@angular/common/http";
 import { environment } from "../../../environments/environment";
-import {catchError, map, Observable, of, throwError} from 'rxjs';
+import { catchError, Observable, of, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import {User, UserLogInRequest} from "../../main/constants/interface";
+import { User, UserLogInRequest } from "../../main/constants/interface";
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,14 @@ export class UserApiService {
     return this.http.post<User | null>( environment.apiUrl + 'api/user/login', {
       'login': request.login,
       'password': request.password
+    })
+      .pipe(catchError(this.handleError));
+  }
+
+  public logInWithoutPassword(login: string): Observable<User | null> {
+    //TODO Подставлять сразу request
+    return this.http.post<User | null>( environment.apiUrl + 'api/user/login-without-password', {
+      'login': login,
     })
       .pipe(catchError(this.handleError));
   }

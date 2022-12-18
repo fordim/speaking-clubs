@@ -51,4 +51,9 @@ export class UserService {
     const activeUser = this.activeUser$.value;
     return !(activeUser === null || activeUser.role !== RoleType.teacher && activeUser.role !== RoleType.admin);
   }
+
+  public isActiveUserValidForNewYearClubs(): boolean {
+    const activeUser = this.activeUser$.value;
+    return !(activeUser === null || activeUser.role !== RoleType.user && activeUser.role !== RoleType.admin);
+  }
 }

@@ -3,7 +3,7 @@ import { BehaviorSubject } from "rxjs";
 import { EventType, Modal } from "../constants/interface";
 import {
   EVENTS,
-  MODAL_INFO_19,
+  EVENTS_START,
   MODAL_INFO_20,
   MODAL_INFO_21,
   MODAL_INFO_22,
@@ -18,6 +18,8 @@ import {
   MODAL_INFO_31,
   ModalType,
 } from "../constants/consts";
+import {NewYearClubsApiService} from "./new-year-clubs-api.service";
+import {UserService} from "../../shared/services/user.service";
 
 @Injectable({
   providedIn: 'root'
@@ -28,11 +30,10 @@ export class MainService {
   public prizeModal$ = new BehaviorSubject<Modal>({
     status: false,
     type: ModalType.generalPrize,
-    modalInfo: MODAL_INFO_19
+    modalInfo: MODAL_INFO_20
   });
   public events$ = new BehaviorSubject<EventType[]>([]);
 
-  public event19$ = new BehaviorSubject<EventType>({ status: false, number: 19 });
   public event20$ = new BehaviorSubject<EventType>({ status: false, number: 20 });
   public event21$ = new BehaviorSubject<EventType>({ status: false, number: 21 });
   public event22$ = new BehaviorSubject<EventType>({ status: false, number: 22 });
@@ -46,7 +47,7 @@ export class MainService {
   public event30$ = new BehaviorSubject<EventType>({ status: false, number: 30 });
   public event31$ = new BehaviorSubject<EventType>({ status: false, number: 31 });
 
-  constructor() {
+  constructor(private _api: NewYearClubsApiService, private _user: UserService) {
     this.initiateMainService();
   }
 
@@ -84,38 +85,42 @@ export class MainService {
       return;
     }
 
+    const activatedEvents = updateEvents.map(event => event.status ? event.number.toString() : null).filter(it => it);
+    const login = this._user.activeUser$.value?.login;
+    if (login) {
+      this._api.updateEvents({ email: login, events: activatedEvents.join(',')}).subscribe();
+    }
+
     this.events$.next(updateEvents);
     this.updateEventStatus(true, code);
-
     this.openPrizeModal(code);
   }
 
-  private initiateMainService(): void {
-    this.events$.next([
-      { status: false, number: 19 },
-      { status: false, number: 20 },
-      { status: false, number: 21 },
-      { status: false, number: 22 },
-      { status: false, number: 23 },
-      { status: false, number: 24 },
-      { status: false, number: 25 },
-      { status: false, number: 26 },
-      { status: false, number: 27 },
-      { status: false, number: 28 },
-      { status: false, number: 29 },
-      { status: false, number: 30 },
-      { status: false, number: 31 },
-    ]);
+  public initiateMainService(): void {
+    const login = this._user.activeUser$.value?.login;
+    if (login) {
+      this._api.getEvents(login).pipe().subscribe(data => {
+        if (data !== null) {
+          const activeEvents = data?.events.split(',');
 
-    this.events$.value.map( it => this.updateEventStatus(it.status, it.number));
+          const events = EVENTS_START.map(event => {
+            if (activeEvents.includes(event.number.toString())) {
+              return { status: true, number: event.number }
+            }
+
+            return event;
+          })
+
+          this.events$.next(events);
+          this.events$.value.map( it => this.updateEventStatus(it.status, it.number));
+        }
+      });
+    }
   }
 
   private updateEventStatus(status: boolean, code: number): void
   {
     switch (code) {
-      case 19:
-        this.event19$.next({ status: status, number: code });
-        break;
       case 20:
         this.event20$.next({ status: status, number: code });
         break;
@@ -159,9 +164,6 @@ export class MainService {
     const type = ModalType.generalPrize;
 
     switch (number) {
-      case 19:
-        this.prizeModal$.next({ status: true, type: type, modalInfo: MODAL_INFO_19 });
-        break;
       case 20:
         this.prizeModal$.next({ status: true, type: type, modalInfo: MODAL_INFO_20 });
         break;

@@ -1,7 +1,6 @@
 <div class="wrapper">
   <img class="closeIcon" src="{{ closeIcon }}" alt="" (click)="closeModal()">
   <img class="elfIcon" src="{{ elfIcon }}" *ngIf="prizeModal$.value.modalInfo?.photoType === 'elf'" alt="">
-  <img class="photoIcon" src="{{ img21Icon }}" *ngIf="prizeModal$.value.modalInfo?.photoType === 'img21'" alt="">
   <img class="photoIcon" src="{{ img23Icon }}" *ngIf="prizeModal$.value.modalInfo?.photoType === 'img23'" alt="">
   <img class="photoIcon" src="{{ img24Icon }}" *ngIf="prizeModal$.value.modalInfo?.photoType === 'img24'" alt="">
   <img class="photoIcon" src="{{ img25Icon }}" *ngIf="prizeModal$.value.modalInfo?.photoType === 'img25'" alt="">

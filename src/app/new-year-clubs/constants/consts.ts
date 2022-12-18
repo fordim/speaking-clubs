@@ -1,23 +1,21 @@
-import { ModalInfo } from "./interface";
+import { EventType, ModalInfo } from "./interface";
 
 export const CodesType = {
-  nineteen: 'aaaaa',
-  twenty: 'bbbbb',
-  twentyOne: 'ccccc',
-  twentyTwo: 'ddddd',
-  twentyThree: 'eeeee',
-  twentyFour: 'fffff',
-  twentyFive: 'ggggg',
-  twentySix: 'hhhhh',
-  twentySeven: 'iiiii',
-  twentyEight: 'jjjjj',
-  twentyNine: 'kkkkk',
-  thirty: 'lllll',
-  thirtyOne: 'm56iJ',
+  twenty: 'A825f',
+  twentyOne: 'd901S',
+  twentyTwo: 'N754A',
+  twentyThree: 'W843E',
+  twentyFour: 'L710Y',
+  twentyFive: 'Y593V',
+  twentySix: 'V100D',
+  twentySeven: 'S934B',
+  twentyEight: 'F5802',
+  twentyNine: 'b097B',
+  thirty: 'W3357',
+  thirtyOne: 'Y4139',
 };
 
 export const EVENTS = {
-  [CodesType.nineteen]: 19,
   [CodesType.twenty]: 20,
   [CodesType.twentyOne]: 21,
   [CodesType.twentyTwo]: 22,
@@ -41,7 +39,6 @@ export enum ModalType {
 
 export enum PhotoType {
   elf = 'elf',
-  img21 = 'img21',
   img23 = 'img23',
   img24 = 'img24',
   img25 = 'img25',
@@ -50,29 +47,37 @@ export enum PhotoType {
   img30 = 'img30',
 }
 
+export const EVENTS_START: EventType[] = [
+  { status: false, number: 20 },
+  { status: false, number: 21 },
+  { status: false, number: 22 },
+  { status: false, number: 23 },
+  { status: false, number: 24 },
+  { status: false, number: 25 },
+  { status: false, number: 26 },
+  { status: false, number: 27 },
+  { status: false, number: 28 },
+  { status: false, number: 29 },
+  { status: false, number: 30 },
+  { status: false, number: 31 },
+];
+
 export const WRONG_EMAIL_TEXT_PART1 = "Хм...такой почты я не нахожу.";
 export const WRONG_EMAIL_TEXT_PART2 = "Ты уверен, что правильно ввёл?";
 export const WRONG_CODE_TEXT_PART1 = "Хм...такой код я не нахожу.";
 export const WRONG_CODE_TEXT_PART2 = "Ты уверен, что правильно ввёл?";
 
-export const MODAL_INFO_19: ModalInfo = {
-  photoType: PhotoType.elf,
-  title: "“+ 1 неделя подписки Plus”",
-  text: "Забирай подарок по",
-  link: ""
-};
-
 export const MODAL_INFO_20: ModalInfo = {
   photoType: PhotoType.elf,
   title: "“Все материалы курсов Speak in-pairs”",
   text: "Забирай подарок по",
-  link: ""
+  link: "https://coda.io/@artem-naumenko/knowledge-base-sc-skysmart"
 };
 
 export const MODAL_INFO_21: ModalInfo = {
-  photoType: PhotoType.img21,
-  title: "“Список мест для путишествий по миру и в России”",
-  text: "Забирай подарок от Алии по",
+  photoType: PhotoType.elf,
+  title: "“+ 1 неделя подписки Plus”",
+  text: "Забирай подарок по",
   link: ""
 };
 
@@ -87,21 +92,21 @@ export const MODAL_INFO_23: ModalInfo = {
   photoType: PhotoType.img23,
   title: "“Подборка новогодних фильмов/мультфильнов на английском”",
   text: "Забирай подарок от Айгюль по",
-  link: ""
+  link: "https://drive.google.com/file/d/1xL8Mq05X6AzaxDuixvQ0p-l-w0IdOZWV/view?usp=sharing"
 };
 
 export const MODAL_INFO_24: ModalInfo = {
   photoType: PhotoType.img24,
   title: "“Рецепт новогоднего угощения”",
   text: "Забирай подарок от Юлии по",
-  link: ""
+  link: "https://drive.google.com/file/d/1lUmpPdUMgh9vWitRlY7inqF4fyvHeZpM/view?usp=sharing"
 };
 
 export const MODAL_INFO_25: ModalInfo = {
   photoType: PhotoType.img25,
   title: "“Набор стикеров в Telegram”",
   text: "Забирай подарок от Нарека по",
-  link: ""
+  link: "https://t.me/addstickers/SCLegend"
 };
 
 export const MODAL_INFO_26: ModalInfo = {
@@ -115,14 +120,14 @@ export const MODAL_INFO_27: ModalInfo = {
   photoType: PhotoType.img27,
   title: "“Чек-лист развлечений на новогодние каникулы”",
   text: "Забирай подарок от Бека по",
-  link: ""
+  link: "https://drive.google.com/file/d/1HzTY93_6byaJq1QfxvLKF0wmGiO-VVz-/view?usp=sharing"
 };
 
 export const MODAL_INFO_28: ModalInfo = {
   photoType: PhotoType.img28,
   title: "“Мастер-класс по упаковке подарков”",
   text: "Забирай подарок от Анастасии по",
-  link: ""
+  link: "https://www.youtube.com/watch?v=rBuv8FQOK9c"
 };
 
 export const MODAL_INFO_29: ModalInfo = {
@@ -136,12 +141,12 @@ export const MODAL_INFO_30: ModalInfo = {
   photoType: PhotoType.img30,
   title: "“Список книг для прочтения в оригинале”",
   text: "Забирай подарок от Анастасии по",
-  link: ""
+  link: "https://drive.google.com/file/d/1_cLnsfSpmAUMtMMhRzUMEXPsS-kk8Q-Q/view?usp=sharing"
 };
 
 export const MODAL_INFO_31: ModalInfo = {
   photoType: PhotoType.elf,
-  title: "TO DO",
-  text: "TO DO",
+  title: "“Новогоднее поздравление от ведущих клубов”",
+  text: "Забирай подарок по",
   link: ""
 };

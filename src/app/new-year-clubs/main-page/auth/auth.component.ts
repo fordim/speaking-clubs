@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { MainService } from "../../services/main.service";
 import { ModalType } from "../../constants/consts";
+import { UserFoLocalStorage } from "../../../main/constants/interface";
+import { UserService } from "../../../shared/services/user.service";
+import { UserApiService } from "../../../shared/services/user-api.service";
 
 @Component({
   selector: 'new-year-clubs-auth',
@@ -18,14 +21,37 @@ export class AuthComponent {
 
   errorModal$ = this._main.errorModal$;
 
-  constructor(private _main: MainService) { }
+  constructor(private _main: MainService, private _userApi: UserApiService, private _user: UserService) { }
 
   public logIn(form: NgForm): void {
     if (form.valid === false) {
       return;
     }
 
-    this._main.openErrorModal(ModalType.errorEmail);
+    const login = form.value.login;
+    if (login.indexOf('@') === -1) {
+      this._main.openErrorModal(ModalType.errorEmail);
+      return;
+    }
+
+    const user$ = this._userApi.logInWithoutPassword(login);
+
+    user$.subscribe( user => {
+      if (user !== null) {
+        this._user.setActiveUserToLocalStorage(
+          {
+            id: user.id,
+            login: user.login,
+            name: user.name,
+            role: user.role
+          } as UserFoLocalStorage
+        );
+
+        this._user.logInSuccess();
+        this._user.activateUser();
+        this._main.initiateMainService();
+      }
+    });
   }
 
   public goToLink() {

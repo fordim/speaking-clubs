@@ -13,7 +13,6 @@ export class CabinetComponent {
   houseIcon = '/assets/new-year-clubs/images/house.png';
 
   errorModal$ = this._main.errorModal$;
-  event19$ = this._main.event19$
   event20$ = this._main.event20$
   event21$ = this._main.event21$
   event22$ = this._main.event22$

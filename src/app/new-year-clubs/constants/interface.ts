@@ -17,3 +17,14 @@ export interface ModalInfo {
   text: string,
   link: string
 }
+
+export interface UpdateEventsRequest {
+  email: string,
+  events: string
+}
+
+export interface EventsResponse {
+  id: number,
+  email: string,
+  events: string
+}

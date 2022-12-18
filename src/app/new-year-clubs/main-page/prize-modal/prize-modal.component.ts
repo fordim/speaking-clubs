@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MainService } from "../../services/main.service";
+import { DEFAULT_CONFETTI_SETTINGS, playConfetti } from "../../../shared/play-confetti";
+import { delay } from "rxjs";
 
 @Component({
   selector: 'new-year-clubs-prize-modal',
   templateUrl: './prize-modal.component.html',
   styleUrls: ['./prize-modal.component.scss']
 })
-export class PrizeModalComponent {
+export class PrizeModalComponent implements OnInit {
 
   closeIcon = '/assets/new-year-clubs/images/popup-close.svg';
   elfIcon = '/assets/new-year-clubs/images/elf.png';
-  img21Icon = '/assets/new-year-clubs/images/img21.png';
   img23Icon = '/assets/new-year-clubs/images/img23.png';
   img24Icon = '/assets/new-year-clubs/images/img24.png';
   img25Icon = '/assets/new-year-clubs/images/img25.png';
@@ -21,6 +22,18 @@ export class PrizeModalComponent {
   prizeModal$ = this._main.prizeModal$;
 
   constructor(private _main: MainService) { }
+
+  ngOnInit(): void {
+    playConfetti({
+      ...DEFAULT_CONFETTI_SETTINGS,
+      origin: {
+        y: 0.5,
+        x: 0.5,
+      },
+    })
+      .pipe(delay(1000))
+      .subscribe(() => {});
+  }
 
   closeModal(): void {
     this._main.closePrizeModal();
